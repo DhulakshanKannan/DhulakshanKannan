@@ -13,25 +13,25 @@
 Real-time crowd monitoring & stampede detection using YOLOv8, with a full MLOps pipeline (MLflow, DVC, Docker, GitHub Actions CI/CD).
 `Python` `YOLOv8` `Streamlit` `MLflow` `Docker` `Flask`
 
-### 🌦️ [CityPulse](https://github.com/DhulakshanKannan/citypulse-weather-pipeline)
+- [CityPulse](https://github.com/DhulakshanKannan/citypulse-weather-pipeline)-
 End-to-end streaming ELT weather pipeline using Kafka, PySpark, and Airflow, containerized with Docker Compose.
 `Docker` `Apache Airflow` `Apache Kafka` `PySpark` `PostgreSQL`
 
 
 ### Sub Projects
-### 🏙️ [Airbnb NYC ELT Data Pipeline](https://github.com/DhulakshanKannan/airbnb-nyc-elt-pipeline)
+- [Airbnb NYC ELT Data Pipeline](https://github.com/DhulakshanKannan/airbnb-nyc-elt-pipeline)-
 Normalized ELT pipeline for NYC Airbnb data, orchestrated with an 8-task Apache Airflow DAG.
 `Python` `PostgreSQL` `Apache Airflow`
 
-### 🌡️ [IoT Temperature & Humidity Dashboard](https://github.com/DhulakshanKannan/iot-temp-humidity-dashboard)
+- [IoT Temperature & Humidity Dashboard](https://github.com/DhulakshanKannan/iot-temp-humidity-dashboard)-
 Real-time IoT monitoring dashboard with live visualization and alerts, built with Python Dash.
 `Python` `Dash` `Plotly`
 
-### 💱 [USD/LKR SARIMA Forecasting](https://github.com/DhulakshanKannan/usdlkr-sarima-forecasting)
+- [USD/LKR SARIMA Forecasting](https://github.com/DhulakshanKannan/usdlkr-sarima-forecasting)-
 Time series forecasting of the USD/LKR exchange rate using SARIMA, with full stationarity testing and diagnostics.
 `R` `Time Series` `SARIMA`
 
-### 🗺️ [Geospatial Population Dashboard](https://github.com/DhulakshanKannan/geospatial-population-dashboard)
+- [Geospatial Population Dashboard](https://github.com/DhulakshanKannan/geospatial-population-dashboard)-
 Interactive choropleth dashboard visualizing world population trends, built with Bokeh.
 `Python` `Bokeh` `GeoPandas`
 
