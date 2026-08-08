@@ -1,11 +1,11 @@
 ### 💫 About Me:
 👋 Hi, I'm Dhulakshan<br>🎓 BSc (Hons) Data Science undergraduate at NIBM, in collaboration with Coventry University
-💻 Learning and building projects in Machine Learning, Deep Learning, Time Series, Big Data, and Data Engineering
-🔧 Working with Python, R, SQL, and tools like TensorFlow, PyTorch, Docker, PySpark, and Apache Airflow
-📌 Currently looking for a Data Science / ML internship to apply and grow these skills
-📫 Reach me at dhulakshankan12@gmail.com
-🌐 Portfolio: [dhulakshankannan.github.io](https://dhulakshankannan.github.io)
-🔗 LinkedIn: [dhulakshan-kannan](https://www.linkedin.com/in/dhulakshan-kannan)
+<br>💻 Learning and building projects in Machine Learning, Deep Learning, Time Series, Big Data, and Data Engineering
+<br>🔧 Working with Python, R, SQL, and tools like TensorFlow, PyTorch, Docker, PySpark, and Apache Airflow
+<br>📌 Currently looking for a Data Science / ML internship to apply and grow these skills
+<br>📫 Reach me at dhulakshankan12@gmail.com
+<br>🌐 Portfolio: [dhulakshankannan.github.io](https://dhulakshankannan.github.io)
+<br>🔗 LinkedIn: [dhulakshan-kannan](https://www.linkedin.com/in/dhulakshan-kannan)
 
 
 ### 🌐 Socials:
