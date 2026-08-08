@@ -13,7 +13,7 @@
 Real-time crowd monitoring & stampede detection using YOLOv8, with a full MLOps pipeline (MLflow, DVC, Docker, GitHub Actions CI/CD).
 `Python` `YOLOv8` `Streamlit` `MLflow` `Docker` `Flask`
 
-- [CityPulse](https://github.com/DhulakshanKannan/citypulse-weather-pipeline)-
+- [CityPulse](https://github.com/DhulakshanKannan/citypulse-data-engineering)-
 End-to-end streaming ELT weather pipeline using Kafka, PySpark, and Airflow, containerized with Docker Compose.
 `Docker` `Apache Airflow` `Apache Kafka` `PySpark` `PostgreSQL`
 
