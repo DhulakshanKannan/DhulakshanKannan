@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhulakshan Kannan — Data Science Undergraduate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1115;
+    --bg-card:#171A21;
+    --line:#282C36;
+    --text:#EDEFF3;
+    --text-dim:#9AA1AF;
+    --text-faint:#5C6270;
+    --accent:#4C8DFF;
+    --accent-soft:rgba(76,141,255,0.1);
+    --font:'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:960px;margin:0 auto;}
+  .logo{font-weight:700;font-size:15px;}
+  .navlinks{display:flex;gap:26px;font-size:13.5px;color:var(--text-dim);}
+  .navlinks a:hover{color:var(--accent);}
+  .hamburger{display:none;font-size:22px;background:none;border:none;color:var(--text);cursor:pointer;}
+  @media (max-width:720px){
+    .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px 0;}
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:12px 24px;border-top:1px solid var(--line);}
+    .hamburger{display:block;}
+  }
+  .cv-btn{background:var(--accent);color:#fff;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;}
+
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  .hero{border-top:none;padding-top:64px;}
+  .eyebrow{font-size:12.5px;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+  h2{font-size:26px;font-weight:700;margin-bottom:30px;}
+
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#7CD992;background:rgba(124,217,146,0.08);border:1px solid rgba(124,217,146,0.25);padding:6px 14px;border-radius:100px;margin-bottom:24px;}
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:#7CD992;}
+
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;}
+  @media (max-width:720px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(30px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:18px;}
+  .hero p{color:var(--text-dim);font-size:16px;max-width:480px;margin-bottom:28px;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{padding:11px 20px;border-radius:8px;font-size:13.5px;font-weight:600;border:1px solid var(--line);}
+  .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .btn-ghost{color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  .avatar-card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center;}
+  .avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#7C5CFF);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;margin:0 auto 16px;overflow:hidden;}
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .avatar-card .name{font-weight:700;font-size:16px;margin-bottom:2px;}
+  .avatar-card .role{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
+  .tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+  .tag{font-size:11px;background:var(--accent-soft);color:var(--accent);padding:5px 11px;border-radius:6px;}
+
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;}
+  @media (max-width:720px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--text-dim);margin-bottom:15px;font-size:15px;}
+  .about-text strong{color:var(--text);}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .stat{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;padding:16px;}
+  .stat .n{font-size:22px;font-weight:800;color:var(--accent);}
+  .stat .l{font-size:12px;color:var(--text-dim);margin-top:2px;}
+
+  .edu-item{margin-bottom:24px;}
+  .edu-date{font-size:12.5px;color:var(--text-faint);margin-bottom:4px;}
+  .edu-title{font-weight:700;font-size:15.5px;margin-bottom:3px;}
+  .edu-org{font-size:13.5px;color:var(--text-dim);}
+
+  .skill-cat{margin-bottom:22px;}
+  .skill-cat .cat-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:12.5px;padding:6px 13px;background:var(--bg-card);border:1px solid var(--line);border-radius:6px;color:var(--text-dim);}
+
+  .research-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:26px;}
+  .research-card h3{font-size:16.5px;margin-bottom:6px;font-weight:700;line-height:1.4;}
+  .research-meta{font-size:12.5px;color:var(--text-faint);margin-bottom:16px;}
+  .research-card ul{list-style:none;margin-bottom:16px;}
+  .research-card li{font-size:14px;color:var(--text-dim);padding-left:16px;position:relative;margin-bottom:8px;}
+  .research-card li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+
+  .proj-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:26px;margin-bottom:18px;}
+  .proj-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+  .proj-title{font-size:17px;font-weight:700;}
+  .proj-cat{font-size:12px;color:var(--text-faint);}
+  .proj-card ul{list-style:none;margin-bottom:14px;}
+  .proj-card li{font-size:13.5px;color:var(--text-dim);padding-left:16px;position:relative;margin-bottom:6px;}
+  .proj-card li::before{content:'—';position:absolute;left:0;color:var(--text-faint);}
+  .proj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .proj-stack span{font-size:11px;color:var(--text-faint);background:#1D212B;padding:3px 9px;border-radius:4px;}
+  .proj-link{font-size:12.5px;color:var(--accent);}
+
+  .subhead{font-size:15px;font-weight:700;margin:32px 0 16px;}
+  .subproj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:720px){.subproj-grid{grid-template-columns:1fr;}}
+  .subproj{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;padding:16px;}
+  .subproj-title{font-size:14px;font-weight:700;margin-bottom:5px;}
+  .subproj-desc{font-size:12.5px;color:var(--text-dim);}
+
+  .exp-item{margin-bottom:22px;}
+  .exp-role{font-weight:700;font-size:15.5px;}
+  .exp-org{font-size:13.5px;color:var(--text-dim);margin-bottom:3px;}
+  .exp-date{font-size:12.5px;color:var(--text-faint);margin-bottom:12px;}
+  .exp-item ul{list-style:none;}
+  .exp-item li{font-size:13.5px;color:var(--text-dim);padding-left:16px;position:relative;margin-bottom:6px;}
+  .exp-item li::before{content:'—';position:absolute;left:0;color:var(--text-faint);}
+
+  .contact-box{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:44px;text-align:center;}
+  .contact-box h2{margin-bottom:10px;}
+  .contact-box p{color:var(--text-dim);margin-bottom:26px;}
+  .contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+  footer{padding:28px 0;text-align:center;color:var(--text-faint);font-size:12.5px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Dhulakshan Kannan</div>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="Dhulakshan_Kannan_CV.pdf" class="cv-btn" target="_blank">CV ↓</a>
+      <button class="hamburger" id="hamburgerBtn">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="pill"><span class="dot"></span> Available for Data Science internships</div>
+    <div class="hero-grid">
+      <div>
+        <h1>Hi, I'm Dhulakshan Kannan.</h1>
+        <p>Data Science undergraduate focused on time series analysis, machine learning, and deep learning, with academic exposure to data engineering — building projects that go from a notebook to something that actually runs.</p>
+        <div class="hero-cta">
+          <a href="mailto:dhulakshankan12@gmail.com" class="btn btn-primary">Contact Me →</a>
+          <a href="#projects" class="btn btn-ghost">View Projects</a>
+        </div>
+      </div>
+      <div class="avatar-card">
+        <div class="avatar"><img src="my_photo.jpeg" alt="Dhulakshan Kannan" onerror="this.parentElement.textContent='DK'"></div>
+        <div class="name">Dhulakshan Kannan</div>
+        <div class="role">Data Science Undergraduate</div>
+        <div class="tag-row">
+          <div class="tag">Specialty: Time Series / ML</div>
+          <div class="tag">Core: Python · SQL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">01 — About</div>
+    <h2>A little about me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>3rd year BSc (Hons) Data Science</strong> undergraduate at NIBM, in collaboration with Coventry University, with a growing foundation in machine learning, deep learning, and data engineering.</p>
+        <p>Hands-on experience with Python, R, and SQL through academic projects spanning computer vision, MLOps, and data pipelines, along with exposure to tools like TensorFlow, PyTorch, and Power BI. I enjoy taking a project past the notebook stage — building it into something usable end to end.</p>
+        <p>Currently looking for a <strong>Data Science internship</strong> to apply and grow these skills in a real team environment.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">6</div><div class="l">projects on GitHub</div></div>
+        <div class="stat"><div class="n">3rd yr</div><div class="l">BSc (Hons) Data Science</div></div>
+        <div class="stat"><div class="n">1 yr</div><div class="l">work experience</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">flagship projects</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="eyebrow">02 — Education</div>
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div class="edu-date">2024 — 2027</div>
+      <div class="edu-title">BSc (Hons) in Data Science</div>
+      <div class="edu-org">Coventry University | National Institute of Business Management (NIBM)</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-date">2020 — 2022 (2023)</div>
+      <div class="edu-title">Secondary Education — GCE Advanced Level (Physical Science Stream)</div>
+      <div class="edu-org">D.S. Senanayake College, Colombo 07</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-date">2014 — 2019</div>
+      <div class="edu-title">Primary Education — GCE Ordinary Level</div>
+      <div class="edu-org">K/Hindu National College, Pussellawa</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">03 — Skills</div>
+    <h2>Technical Skills</h2>
+    <div class="skill-cat">
+      <div class="cat-name">Machine Learning & AI</div>
+      <div class="chips">
+        <span class="chip">Supervised Learning</span><span class="chip">Unsupervised Learning</span>
+        <span class="chip">Deep Learning</span><span class="chip">Time Series Analysis</span>
+        <span class="chip">PyTorch</span><span class="chip">TensorFlow</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="cat-name">Data Engineering & Big Data</div>
+      <div class="chips">
+        <span class="chip">Data Pipelines</span><span class="chip">Data Processing</span>
+        <span class="chip">ETL Concepts</span><span class="chip">Big Data Analytics</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="cat-name">Programming & Tools</div>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
+        <span class="chip">Scikit-learn</span><span class="chip">R</span><span class="chip">SQL</span>
+        <span class="chip">Docker</span><span class="chip">Cloud Computing</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="cat-name">Visualization & Math</div>
+      <div class="chips">
+        <span class="chip">Power BI</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+        <span class="chip">Statistics</span><span class="chip">Probability</span><span class="chip">Linear Algebra</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="eyebrow">04 — Research</div>
+    <h2>Featured Research</h2>
+    <div class="research-card">
+      <h3>Daily-Based PM2.5 Pollution Pattern Identification using Fuzzy C-Means Clustering: A Case Study of the Colombo Municipal Council Area</h3>
+      <div class="research-meta">HND Research Project · National Institute of Business Management (NIBM), in collaboration with Coventry University</div>
+      <ul>
+        <li>Built a probabilistic preprocessing framework (Normal, Lognormal, Gamma, Weibull fitting with AIC-based model selection) on 3 years of PM2.5 data from 12 monitoring stations.</li>
+        <li>Applied Min-Max normalization and Fuzzy C-Means clustering, validated with FCSETS-based stability checks.</li>
+        <li>Identified 5 distinct daily pollution patterns, revealing weekday–weekend and station-level trends to support air quality management.</li>
+      </ul>
+      <div class="proj-stack"><span>Python</span><span>Fuzzy C-Means</span><span>Statistical Modeling</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow">05 — Projects</div>
+    <h2>Academic Projects</h2>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <div class="proj-title">CrowdSafe AI — Real-Time Crowd Monitoring & Stampede Detection</div>
+        <div class="proj-cat">Deep Learning</div>
+      </div>
+      <ul>
+        <li>Fine-tuned a YOLOv8 Nano model on a custom crowd dataset for real-time people detection.</li>
+        <li>Built a Streamlit dashboard with crowd density heatmaps, optical flow analysis, and a zone-based risk scoring system.</li>
+        <li>Integrated MLOps tooling (experiment tracking, versioning, CI/CD) and containerized the app with Docker and a Flask API.</li>
+      </ul>
+      <div class="proj-stack"><span>Python</span><span>YOLOv8</span><span>Streamlit</span><span>MLflow</span><span>Docker</span><span>Flask</span></div>
+      <a href="https://github.com/DhulakshanKannan/crowdsafe-ai" class="proj-link" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <div class="proj-title">CityPulse — Weather Analytics Pipeline</div>
+        <div class="proj-cat">Data Engineering</div>
+      </div>
+      <ul>
+        <li>Built an end-to-end streaming ELT pipeline ingesting live weather data hourly, streamed into PostgreSQL.</li>
+        <li>Transformed data daily with PySpark into a star-schema warehouse.</li>
+        <li>Orchestrated automated workflows with self-recovering Airflow DAGs, fully containerized with Docker Compose.</li>
+      </ul>
+      <div class="proj-stack"><span>Docker</span><span>Apache Airflow</span><span>Apache Kafka</span><span>PySpark</span><span>PostgreSQL</span></div>
+      <a href="https://github.com/DhulakshanKannan/citypulse-weather-pipeline" class="proj-link" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="subhead">Sub Projects</div>
+    <div class="subproj-grid">
+      <div class="subproj">
+        <div class="subproj-title">Airbnb NYC ELT Pipeline</div>
+        <div class="subproj-desc">Normalized ELT pipeline for NYC Airbnb data using a PostgreSQL star schema and Airflow orchestration.</div>
+      </div>
+      <div class="subproj">
+        <div class="subproj-title">IoT Monitoring Dashboard</div>
+        <div class="subproj-desc">Real-time temperature and humidity dashboard built with Python Dash.</div>
+      </div>
+      <div class="subproj">
+        <div class="subproj-title">USD/LKR Exchange Rate Forecasting</div>
+        <div class="subproj-desc">Monthly exchange rate forecasting using a SARIMA model with residual diagnostics.</div>
+      </div>
+      <div class="subproj">
+        <div class="subproj-title">Geospatial Population Dashboard</div>
+        <div class="subproj-desc">Interactive choropleth map of world population trends, built with Bokeh.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="eyebrow">06 — Experience</div>
+    <h2>Work Experience</h2>
+    <div class="exp-item">
+      <div class="exp-role">Sales & Operations Manager</div>
+      <div class="exp-org">Ceylon Hampers Pvt Ltd</div>
+      <div class="exp-date">May 2024 — June 2025</div>
+      <ul>
+        <li>Led end-to-end sales and operational activities for a gifting business, managing order processing, inventory coordination, and delivery timelines.</li>
+        <li>Analyzed sales performance and operational data to identify trends and support data-driven business decisions.</li>
+        <li>Coordinated with suppliers and internal teams to optimize operational efficiency and maintain service quality.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:1px solid var(--line);">
+    <div class="contact-box">
+      <div class="eyebrow" style="justify-content:center;">07 — Contact</div>
+      <h2>Let's build something.</h2>
+      <p>Open to Data Science internship opportunities — reach out by email or connect on LinkedIn and GitHub.</p>
+      <div class="contact-links">
+        <a href="mailto:dhulakshankan12@gmail.com" class="btn btn-primary">✉ dhulakshankan12@gmail.com</a>
+        <a href="tel:+94719956129" class="btn btn-ghost">📞 +94 71 995 6129</a>
+        <a href="https://www.linkedin.com/in/dhulakshan-kannan" class="btn btn-ghost" target="_blank">LinkedIn</a>
+        <a href="https://github.com/DhulakshanKannan" class="btn btn-ghost" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 Dhulakshan Kannan · Colombo, Sri Lanka</footer>
+
+<script>
+  const btn = document.getElementById('hamburgerBtn');
+  const nav = document.getElementById('navlinks');
+  btn.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+
+</body>
+</html>
